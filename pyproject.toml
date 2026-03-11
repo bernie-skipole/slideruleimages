@@ -1,0 +1,19 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "slideruleimages"
+authors = [{name = "Bernard Czenkusz", email = "bernie@skipole.co.uk"}]
+license = "MIT"
+classifiers = ["Topic :: Education", "Topic :: Scientific/Engineering :: Mathematics"]
+version = "0.0.1"
+description="A Python package, with no dependencies, producing SVG images of Slide Rule scales"
+readme = "README.md"
+requires-python = ">=3.10"
+keywords=['scales', 'math', 'image', 'sliderule']
+
+[project.urls]
+Source = "https://github.com/bernie-skipole/slideruleimages"
+
+
