@@ -59,4 +59,9 @@ Only one of the arguments btmrule, midrule or toprule should be given a non -1 a
 which indicates which rule the scale should appear on, and the integer number of
 pixels down from the top of that rule.
 
+The package is available on Pypi at:
+
+https://pypi.org/project/slideruleimages/
+
+
 
