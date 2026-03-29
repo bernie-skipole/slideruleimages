@@ -2,6 +2,8 @@ import xml.etree.ElementTree as ET
 
 import math
 
+from .ascale import addAscale
+
 from .dscale import addDscale
 
 from .cscale import addCscale
@@ -144,6 +146,9 @@ class Rule:
             if self.topruleheight + self.midruleheight + btmrule > 0:
                 element.set("transform", f"translate(0 {self.topruleheight + self.midruleheight + btmrule})")
         self._doc.append(element)
+
+    def addAscale(self, btmrule=-1, midrule=-1, toprule=-1):
+        self._createscale(addAscale, btmrule, midrule, toprule)
 
     def addDscale(self, btmrule=-1, midrule=-1, toprule=-1):
         self._createscale(addDscale, btmrule, midrule, toprule)

@@ -43,21 +43,23 @@ The package has one class, Rule, which is illustrated above and has the methods:
 
 write(filename) This saves the image file.
 
-addDscale(btmrule=-1, midrule=-1, toprule=-1)
+addAscale(btmrule=-1, midrule=-1, toprule=-1)
 
 addCscale(btmrule=-1, midrule=-1, toprule=-1)
 
 addCFscale(btmrule=-1, midrule=-1, toprule=-1)
 
+addDscale(btmrule=-1, midrule=-1, toprule=-1)
+
 addDFscale(btmrule=-1, midrule=-1, toprule=-1)
 
-addLL3scale(btmrule=-1, midrule=-1, toprule=-1)
-
-addLL2scale(btmrule=-1, midrule=-1, toprule=-1)
+addLL0scale(btmrule=-1, midrule=-1, toprule=-1)
 
 addLL1scale(btmrule=-1, midrule=-1, toprule=-1)
 
-addLL0scale(btmrule=-1, midrule=-1, toprule=-1)
+addLL2scale(btmrule=-1, midrule=-1, toprule=-1)
+
+addLL3scale(btmrule=-1, midrule=-1, toprule=-1)
 
 Only one of the arguments btmrule, midrule or toprule should be given a non -1 argument
 which indicates which rule the scale should appear on, and the integer number of
