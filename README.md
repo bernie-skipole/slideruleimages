@@ -55,6 +55,8 @@ addLL3scale(btmrule=-1, midrule=-1, toprule=-1)
 
 addLL2scale(btmrule=-1, midrule=-1, toprule=-1)
 
+addLL1scale(btmrule=-1, midrule=-1, toprule=-1)
+
 Only one of the arguments btmrule, midrule or toprule should be given a non -1 argument
 which indicates which rule the scale should appear on, and the integer number of
 pixels down from the top of that rule.

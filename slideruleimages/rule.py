@@ -14,6 +14,8 @@ from .ll3scale import addLL3scale
 
 from .ll2scale import addLL2scale
 
+from .ll1scale import addLL1scale
+
 
 
 class Rule:
@@ -158,6 +160,9 @@ class Rule:
 
     def addLL2scale(self, btmrule=-1, midrule=-1, toprule=-1):
         self._createscale(addLL2scale, btmrule, midrule, toprule)
+
+    def addLL1scale(self, btmrule=-1, midrule=-1, toprule=-1):
+        self._createscale(addLL1scale, btmrule, midrule, toprule)
 
 
 
