@@ -33,16 +33,6 @@ def addDFscale(rl, rightmove, zero) -> ET.Element:
         pixmark = ET.SubElement(doc, 'text', {"x":str(c + m + 12), "y":"70","fill":"black", "font-size":"16"})
     pixmark.text = "\u03C0x"
 
-    # start r
-    # r = (x-1)x100
-    # r = (3.13 -1)x 100  -- 3.13 to get beyond 3.1 but befor pi
-    # r = 213
-
-    # end r
-    # r = (31 - 1)x 100
-    # r = 3000
-
-
     for r in range(313, 3100+1):
         # r is 313 to 3100
         # x is 3.13 to 31 inclusive
