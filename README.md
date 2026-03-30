@@ -45,6 +45,8 @@ write(filename) This saves the image file.
 
 addAscale(btmrule=-1, midrule=-1, toprule=-1)
 
+addBscale(btmrule=-1, midrule=-1, toprule=-1)
+
 addCscale(btmrule=-1, midrule=-1, toprule=-1)
 
 addCFscale(btmrule=-1, midrule=-1, toprule=-1)
@@ -64,6 +66,8 @@ addLL3scale(btmrule=-1, midrule=-1, toprule=-1)
 Only one of the arguments btmrule, midrule or toprule should be given a non -1 argument
 which indicates which rule the scale should appear on, and the integer number of
 pixels down from the top of that rule.
+
+Note each scale is 100px high, so in the example a midruleheight of 120 with a midrule of 20, sets the C scale onto the midrule, with a 20px space at the top of the rule, and the actual scale sitting against the bottom of the rule.
 
 The package is available on Pypi at:
 

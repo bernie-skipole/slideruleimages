@@ -27,7 +27,7 @@ def _text(doc, textstr, xpos, texty, fontsize):
         tel.text = textstr
 
 
-def addLL0scale(rl, rightmove) -> ET.Element:
+def addLL0scale(rl, rightmove, zero) -> ET.Element:
     "Adds the LL0 scale to the rule, returns the scale element"
 
     ybot = 100

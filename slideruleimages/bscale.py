@@ -5,18 +5,18 @@ import math
 from . import draw
 
 
-def addAscale(rl, rightmove, zero):
-    "Adds the A scale to the rule, returns the scale element"
+def addBscale(rl, rightmove, zero):
+    "Adds the B scale to the rule, returns the scale element"
 
     doc = ET.Element('g')
 
-    # A mark
+    # B mark
     if zero:
         ay = "50"
     else:
         ay = "70"
-    Amark = ET.SubElement(doc, 'text', {"x":str(rightmove + 8), "y":ay, "fill":"black", "font-size":"24"})
-    Amark.text = "A"
+    Bmark = ET.SubElement(doc, 'text', {"x":str(rightmove + 8), "y":ay, "fill":"black", "font-size":"24"})
+    Bmark.text = "B"
 
     # scaling with y = mx+c for first half of scale
     m = rl.scalewidth/2.0

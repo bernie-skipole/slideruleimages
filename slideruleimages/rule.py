@@ -4,6 +4,8 @@ import math
 
 from .ascale import addAscale
 
+from .bscale import addBscale
+
 from .dscale import addDscale
 
 from .cscale import addCscale
@@ -127,15 +129,26 @@ class Rule:
         tree.write(filename, xml_declaration=True)
 
     def _createscale(self, fn, btmrule, midrule, toprule):
+        zero = False
         if toprule>-1:
+            if midrule>-1 or btmrule>-1:
+                raise ValueError("Only one of btmrule, midrule or toprule should be specified")
             rightmove = self.mainmove
+            if not toprule:
+                zero=True   # the pixel distance from the top of this ruler is zero
         elif midrule>-1:
+            if btmrule>-1:
+                raise ValueError("Only one of btmrule, midrule or toprule should be specified")
             rightmove = self.slidermove
+            if not midrule:
+                zero=True   # the pixel distance from the top of this ruler is zero
         elif btmrule>-1:
             rightmove = self.mainmove
+            if not btmrule:
+                zero=True   # the pixel distance from the top of this ruler is zero
         else:
             raise ValueError("At least one rule must be specified")
-        element = fn(self, rightmove)
+        element = fn(self, rightmove, zero)
         if toprule>-1:
             if toprule>0:
                 element.set("transform", f"translate(0 {toprule})")
@@ -149,6 +162,9 @@ class Rule:
 
     def addAscale(self, btmrule=-1, midrule=-1, toprule=-1):
         self._createscale(addAscale, btmrule, midrule, toprule)
+
+    def addBscale(self, btmrule=-1, midrule=-1, toprule=-1):
+        self._createscale(addBscale, btmrule, midrule, toprule)
 
     def addDscale(self, btmrule=-1, midrule=-1, toprule=-1):
         self._createscale(addDscale, btmrule, midrule, toprule)

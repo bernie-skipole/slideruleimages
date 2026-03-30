@@ -12,7 +12,7 @@ def _vertical(length, xpos, ytop, col="black") -> dict:
     return {"x1":str(xpos), "y1":str(ytop), "x2":str(xpos), "y2":str(ytop+length), "style":f"stroke:{col};stroke-width:1"}
 
 
-def addDscale(rl, rightmove):
+def addDscale(rl, rightmove, zero):
     "Adds the D scale to the rule, returns the scale element"
 
     ytop = 0 # y value of top of scale

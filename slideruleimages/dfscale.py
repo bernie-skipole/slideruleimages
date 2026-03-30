@@ -13,7 +13,7 @@ def _vertical(length, xpos, ybot, col="black") -> dict:
     return {"x1":str(xpos), "y1":str(ybot), "x2":str(xpos), "y2":str(ybot-length), "style":f"stroke:{col};stroke-width:1"}
 
 
-def addDFscale(rl, rightmove) -> ET.Element:
+def addDFscale(rl, rightmove, zero) -> ET.Element:
     "Adds the DF scale to the top rule, returns the scale element"
 
     ybot = 100 # y value of bot of scale

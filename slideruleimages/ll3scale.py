@@ -30,7 +30,7 @@ def _text(doc, textstr, xpos, texty, fontsize):
 
 
 
-def addLL3scale(rl, rightmove) -> ET.Element:
+def addLL3scale(rl, rightmove, zero) -> ET.Element:
     "Adds the LL3 scale to the rule, returns the scale element"
 
     ybot = 100
