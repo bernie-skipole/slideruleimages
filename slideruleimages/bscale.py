@@ -12,10 +12,10 @@ def addBscale(rl, rightmove, zero):
 
     # B mark
     if zero:
-        ay = "50"
+        by = "50"
     else:
-        ay = "70"
-    Bmark = ET.SubElement(doc, 'text', {"x":str(rightmove + 8), "y":ay, "fill":"black", "font-size":"24"})
+        by = "70"
+    Bmark = ET.SubElement(doc, 'text', {"x":str(rightmove + 8), "y":by, "fill":"black", "font-size":"24"})
     Bmark.text = "B"
 
     # scaling with y = mx+c for first half of scale

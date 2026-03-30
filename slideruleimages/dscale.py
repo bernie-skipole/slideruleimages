@@ -2,85 +2,84 @@ import xml.etree.ElementTree as ET
 
 import math
 
-
-def _vertical(length, xpos, ytop, col="black") -> dict:
-    """length is the length of the vertical line
-       ytop is the starting y position
-       xpos is the x position
-       col is the colour of the line"""
-    xpos = round(xpos*4)/4.0
-    return {"x1":str(xpos), "y1":str(ytop), "x2":str(xpos), "y2":str(ytop+length), "style":f"stroke:{col};stroke-width:1"}
+from . import draw
 
 
 def addDscale(rl, rightmove, zero):
     "Adds the D scale to the rule, returns the scale element"
 
-    ytop = 0 # y value of top of scale
-
     doc = ET.Element('g')
 
     # D mark
-    Dmark = ET.SubElement(doc, 'text', {"x":str(rightmove + 8), "y":str(ytop+40),"fill":"black", "font-size":"24"})
+    if zero:
+        dy = "50"
+    else:
+        dy = "70"
+    Dmark = ET.SubElement(doc, 'text', {"x":str(rightmove + 8), "y":dy, "fill":"black", "font-size":"24"})
     Dmark.text = "D"
 
+    # scaling with y = mx+c for first half of scale
+    m = rl.scalewidth
+    c = rightmove + rl.leftmargin
+
     # Pi mark
-    xpos = rightmove + rl.leftmargin + rl.scalewidth*math.log10(math.pi)
-    xpos = round(xpos*4)/4.0
-    Pimark = ET.SubElement(doc, 'text', {"x":str(xpos-4), "y":str(ytop+55),"fill":"black", "font-size":"16"})
-    Pimark.text = "\u03C0"
-    ET.SubElement(doc, 'line', _vertical(40, xpos, ytop))
+    xpos = m*math.log10(math.pi) + c
+    draw.line(doc, 40, xpos, zero)
+    draw.text(doc, "\u03C0", xpos, zero, 52, 47, 16)
 
     # x mark
-    xmark = ET.SubElement(doc, 'text', {"x":str(rightmove  + rl.leftmargin + rl.scalewidth + 12), "y":str(ytop+40),"fill":"black", "font-size":"16"})
+    if zero:
+        yx = "40"
+    else:
+        yx = "65"
+    xmark = ET.SubElement(doc, 'text', {"x":str(rightmove  + rl.leftmargin + rl.scalewidth + 12), "y":yx,"fill":"black", "font-size":"16"})
     xmark.text = "x"
 
-    for r in range(0, 90000+1):
-        # r is 0 to 90000   - this is along rule length
+    for r in range(100, 1000+1):
+        # r is 100 to 1000   - this is along rule length
         # x is 1 to 10 inclusive
-        x = 1 + r/10000
+        x = r/100
         xpos = rightmove + rl.leftmargin + rl.scalewidth*math.log10(x)
         length = 0
         textstr = ''
         fontsize = 16
-        texty = ytop+95
-        if not r:                   # at x == 1, r = 0
+        y0 = 95
+        y1 = 80
+        if r == 100:                   # at x == 1, r = 100
             length = 70
             textstr = "1"
             fontsize = 18
-        elif r == 90000:            # at x == 10, r= 90000
+        elif r == 1000:            # at x == 10, r= 1000
             length = 70
             textstr = "10"
             fontsize = 18
-        elif r % 10000 == 0:         # at x = 2, 3, etc 
+        elif r % 100 == 0:         # at x = 2, 3, etc 
             length = 60
             textstr = str(round(x))
             fontsize = 18
-            texty = ytop+80
-        elif r % 5000 == 0:         # at x = 1.5, 2.5, 3.5, etc 
+            y0 = 80
+            y1 = 66
+        elif r % 50 == 0:         # at x = 1.5, 2.5, 3.5, etc 
             length = 50
             textstr = str(x)
             fontsize = 14
-            texty = ytop+65
-        elif r % 1000 == 0:         # at x = 1.1, 1.2, etc 
+            y0 = 65
+            y1 = 55
+        elif r % 10 == 0:         # at x = 1.1, 1.2, etc 
             length = 30
-            if r < 10000:           # only do text for x<2, r <10000  
+            if r < 200:           # only do text for x<2, r <200  
                 textstr = str(x)
                 fontsize = 12
-                texty = ytop+40
-        elif r < 30000:             # x < 4, r < 30000
-            if r % 500 == 0:        # at x =1.05, 1.15, etc
+                y0 = 40
+                y1 = 33
+        elif r < 400:             # x < 4, r < 400
+            if r % 5 == 0:        # at x =1.05, 1.15, etc
                 length = 20
 
         if length:
-            vline = _vertical(length, xpos, ytop, col="black")
-            ET.SubElement(doc, 'line', vline)
+            draw.line(doc, length, xpos, zero, col="black")
         if textstr:
-            if len(textstr) == 1:
-                textpos = round(xpos - 4)    #  textpos This is in pixels
-            else:
-                textpos = round(xpos - 6)    # three characters, such as 1.5
-            tel = ET.SubElement(doc, 'text', {"x":str(textpos), "y":str(texty),"fill":"black", "font-size":str(fontsize)})
-            tel.text = textstr
+            draw.text(doc, textstr, xpos, zero, y0, y1, fontsize)
 
     return doc
 
