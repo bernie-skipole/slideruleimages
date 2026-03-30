@@ -5,7 +5,7 @@ import math
 from . import draw
 
 
-def addCscale(rl, rightmove, zero):
+def addCscale(rl, rightmove, zero) -> ET.Element:
     "Adds the C scale to the rule, returns the scale element"
 
     doc = ET.Element('g')
@@ -18,7 +18,7 @@ def addCscale(rl, rightmove, zero):
     Cmark = ET.SubElement(doc, 'text', {"x":str(rightmove + 8), "y":cy, "fill":"black", "font-size":"24"})
     Cmark.text = "C"
 
-    # scaling with y = mx+c for first half of scale
+    # scaling with y = mx+c
     m = rl.scalewidth
     c = rightmove + rl.leftmargin
 

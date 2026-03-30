@@ -5,7 +5,7 @@ import math
 from . import draw
 
 
-def addDscale(rl, rightmove, zero):
+def addDscale(rl, rightmove, zero) -> ET.Element:
     "Adds the D scale to the rule, returns the scale element"
 
     doc = ET.Element('g')
@@ -18,7 +18,7 @@ def addDscale(rl, rightmove, zero):
     Dmark = ET.SubElement(doc, 'text', {"x":str(rightmove + 8), "y":dy, "fill":"black", "font-size":"24"})
     Dmark.text = "D"
 
-    # scaling with y = mx+c for first half of scale
+    # scaling with y = mx+c
     m = rl.scalewidth
     c = rightmove + rl.leftmargin
 
