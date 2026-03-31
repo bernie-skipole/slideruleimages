@@ -34,40 +34,58 @@ This would produce:
 
 ![example](https://raw.githubusercontent.com/bernie-skipole/slideruleimages/main/twoxthree.svg)
 
-This package is intended to produce images useful for documents or web sites
-which illustrate logarithms or Slide Rules. One such web site is available at:
+
+Each scale is 100px high, so in the example a midruleheight of 120 is set, with the C scale set onto the midrule, with a 20px space at the top of the rule, and the actual scale sitting against the bottom of the rule.
+
+This package is intended to produce images useful for documents or web sites which illustrate logarithms or Slide Rules. One such web site is available at:
 
 https://bernie-skipole.github.io/sliderule/
 
-The package has one class, Rule, which is illustrated above and has the methods:
+The package has one class, Rule, which has arguments, and defaults:
 
-write(filename) This saves the image file.
+    xvalue:float = 1.0,
 
-addAscale(btmrule=-1, midrule=-1, toprule=-1)
+    right:bool = True
 
-addBscale(btmrule=-1, midrule=-1, toprule=-1)
+    hairline:float=0.0
 
-addCscale(btmrule=-1, midrule=-1, toprule=-1)
+    topruleheight:int = 120
 
-addCFscale(btmrule=-1, midrule=-1, toprule=-1)
+    midruleheight:int = 200
 
-addDscale(btmrule=-1, midrule=-1, toprule=-1)
+    btmruleheight:int = 120
 
-addDFscale(btmrule=-1, midrule=-1, toprule=-1)
+    col:str = "#f9fc69"
 
-addLL0scale(btmrule=-1, midrule=-1, toprule=-1)
+The col string is an SVG color, by default a pale yellow, this can be set to a string such as "white" if a black and white printable rule is required.
 
-addLL1scale(btmrule=-1, midrule=-1, toprule=-1)
+The Rule class has methods:
 
-addLL2scale(btmrule=-1, midrule=-1, toprule=-1)
+    write(filename)
 
-addLL3scale(btmrule=-1, midrule=-1, toprule=-1)
+    addAscale(btmrule=-1, midrule=-1, toprule=-1)
 
-Only one of the arguments btmrule, midrule or toprule should be given a non -1 argument
-which indicates which rule the scale should appear on, and the integer number of
-pixels down from the top of that rule.
+    addBscale(btmrule=-1, midrule=-1, toprule=-1)
 
-Note each scale is 100px high, so in the example a midruleheight of 120 with a midrule of 20, sets the C scale onto the midrule, with a 20px space at the top of the rule, and the actual scale sitting against the bottom of the rule.
+    addCscale(btmrule=-1, midrule=-1, toprule=-1)
+
+    addCFscale(btmrule=-1, midrule=-1, toprule=-1)
+
+    addDscale(btmrule=-1, midrule=-1, toprule=-1)
+
+    addDFscale(btmrule=-1, midrule=-1, toprule=-1)
+
+    addLL0scale(btmrule=-1, midrule=-1, toprule=-1)
+
+    addLL1scale(btmrule=-1, midrule=-1, toprule=-1)
+
+    addLL2scale(btmrule=-1, midrule=-1, toprule=-1)
+
+    addLL3scale(btmrule=-1, midrule=-1, toprule=-1)
+
+The write method saves the image file.
+
+When adding a scale, only one of the arguments btmrule, midrule or toprule should be given a non -1 argument which indicates which rule the scale should appear on, and the integer number of pixels down from the top of that rule.
 
 The package is available on Pypi at:
 

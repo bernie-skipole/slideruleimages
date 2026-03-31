@@ -30,11 +30,13 @@ class Rule:
     def __init__(self, xvalue:float = 1.0, right:bool = True, hairline:float=0.0,
                       topruleheight = 120,
                       midruleheight = 200,
-                      btmruleheight = 120):
+                      btmruleheight = 120,
+                      col = "#f9fc69"):
         """xvalue is where the C scale index is placed over the D value
            right is True if the mid scale is moved to the right
            right is False if the mid scale is moved to the left
-           hairline is where the hairline cursor is placed over the D value, or zero if no hairline is used"""
+           hairline is where the hairline cursor is placed over the D value, or zero if no hairline is used
+           col is the colour of the rule, by default a pale yellow"""
 
         self.topruleheight = topruleheight
         self.midruleheight = midruleheight
@@ -81,22 +83,25 @@ class Rule:
         # top rule
         if self.topruleheight:
             ### rectangle of background colour
-            ET.SubElement(self._doc, 'rect', {"width":str(self.rulewidth), "height":str(self.topruleheight), "x":str(self.mainmove),"y":"0",
-                                              "style":"fill:#f9fc69;stroke-width:1;stroke:black"})
+            ET.SubElement(self._doc, 'rect', {"width":str(self.rulewidth), "height":str(self.topruleheight),
+                                              "x":str(self.mainmove),"y":"0",
+                                              "style":f"fill:{col};stroke-width:1;stroke:black"})
 
         # midrule - the slider
         if self.midruleheight:
             ### rectangle of background colour
-            ET.SubElement(self._doc, 'rect', {"width":str(self.rulewidth), "height":str(self.midruleheight), "x":str(self.slidermove),"y":str(self.topruleheight),
-                                              "style":"fill:#f9fc69;stroke-width:1;stroke:black"})
+            ET.SubElement(self._doc, 'rect', {"width":str(self.rulewidth), "height":str(self.midruleheight),
+                                              "x":str(self.slidermove),"y":str(self.topruleheight),
+                                              "style":f"fill:{col};stroke-width:1;stroke:black"})
 
         # bottom rule
         if self.btmruleheight:
             # bottom rule
             heightofy = self.topruleheight + self.midruleheight
             ### rectangle of background colour
-            ET.SubElement(self._doc, 'rect', {"width":str(self.rulewidth), "height":str(self.btmruleheight), "x":str(self.mainmove),"y":str(heightofy),
-                                              "style":"fill:#f9fc69;stroke-width:1;stroke:black"})
+            ET.SubElement(self._doc, 'rect', {"width":str(self.rulewidth), "height":str(self.btmruleheight),
+                                              "x":str(self.mainmove),"y":str(heightofy),
+                                              "style":f"fill:{col};stroke-width:1;stroke:black"})
 
         # hairline
         if self.hairline:
