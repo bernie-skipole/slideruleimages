@@ -87,6 +87,8 @@ The write method saves the image file.
 
 When adding a scale, only one of the arguments btmrule, midrule or toprule should be given a non -1 argument which indicates which rule the scale should appear on, and the integer number of pixels down from the top of that rule.
 
+Scales are normally orientated with numeric characters above the scale, as the C scale above, but if the value of zero is used, with the scale set to the top of a rule, then the characters are set below the scale, as shown on the D scale above.
+
 The package is available on Pypi at:
 
 https://pypi.org/project/slideruleimages/
