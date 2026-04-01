@@ -14,6 +14,8 @@ from .cfscale import addCFscale
 
 from .dfscale import addDFscale
 
+from .kscale import addKscale
+
 from .ll3scale import addLL3scale
 
 from .ll2scale import addLL2scale
@@ -182,6 +184,9 @@ class Rule:
 
     def addDFscale(self, btmrule=-1, midrule=-1, toprule=-1):
         self._createscale(addDFscale, btmrule, midrule, toprule)
+
+    def addKscale(self, btmrule=-1, midrule=-1, toprule=-1):
+        self._createscale(addKscale, btmrule, midrule, toprule)
 
     def addLL3scale(self, btmrule=-1, midrule=-1, toprule=-1):
         self._createscale(addLL3scale, btmrule, midrule, toprule)

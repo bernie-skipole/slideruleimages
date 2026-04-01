@@ -75,6 +75,8 @@ The Rule class has methods:
 
     addDFscale(btmrule=-1, midrule=-1, toprule=-1)
 
+    addKscale(btmrule=-1, midrule=-1, toprule=-1)
+
     addLL0scale(btmrule=-1, midrule=-1, toprule=-1)
 
     addLL1scale(btmrule=-1, midrule=-1, toprule=-1)
