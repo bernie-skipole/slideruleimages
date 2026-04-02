@@ -30,20 +30,24 @@ def addKscale(rl, rightmove, zero):
     x3mark = ET.SubElement(doc, 'text', {"x":str(rightmove  + rl.leftmargin + rl.scalewidth + 20), "y":yx3,"fill":"black", "font-size":"12"})
     x3mark.text = "3"
 
-    m = rl.scalewidth/3.0
-    for part in range(0,3):    # The scale has three equal parts
+    # 1000 mark
+    xpos = rightmove  + rl.leftmargin + rl.scalewidth
+    draw.line(doc, 60, xpos, zero, col="black")
+    draw.text(doc, "1000", xpos, zero, 75, 66, 18)
 
-        # scaling with y = mx+c
-        c = rightmove + rl.leftmargin + part*m 
+    # scaling with y = mx+c
+    m = rl.scalewidth/3.0
+    c = rightmove + rl.leftmargin
+    for part in ("1", "10", "100"):    # The scale has three equal parts
 
         # Pi mark
         xpos = m*math.log10(math.pi) + c
         draw.line(doc, 35, xpos, zero)
         draw.text(doc, "\u03C0", xpos, zero, 48, 40, 16)
 
-        for r in range(100, 1000+1):
-            # r is 100 to 1000   - provides integer values
-            # x is 1 to 10 inclusive
+        for r in range(100, 1000):
+            # r is 100 to 999   - provides integer values
+            # x is 1 to 10 not inclusive of the 1o
             x = r/100
             xpos = m*math.log10(x)+c
             length = 0
@@ -54,17 +58,7 @@ def addKscale(rl, rightmove, zero):
             if r == 100:            # at x == 1, r = 100
                 length = 60
                 fontsize = 18
-                if part == 1:
-                    textstr = "10"
-                elif part == 2:
-                    textstr = "100"
-                else:
-                    textstr = "1"
-            elif r == 1000:
-                if part == 2:
-                    length = 60
-                    fontsize = 18
-                    textstr = "1000"
+                textstr = part
             elif r % 100 == 0:         # at x = 2, 3, etc 
                 length = 50
                 textstr = str(round(x))
@@ -87,6 +81,8 @@ def addKscale(rl, rightmove, zero):
                 draw.line(doc, length, xpos, zero, col="black")
             if textstr:
                 draw.text(doc, textstr, xpos, zero, y0, y1, fontsize)
+
+        c += m # add m for next part
 
     return doc
 
