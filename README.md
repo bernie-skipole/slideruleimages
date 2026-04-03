@@ -77,6 +77,8 @@ The Rule class has methods:
 
     addKscale(btmrule=-1, midrule=-1, toprule=-1)
 
+    addLscale(btmrule=-1, midrule=-1, toprule=-1)
+
     addLL0scale(btmrule=-1, midrule=-1, toprule=-1)
 
     addLL1scale(btmrule=-1, midrule=-1, toprule=-1)
