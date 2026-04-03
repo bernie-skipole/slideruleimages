@@ -128,6 +128,8 @@ def addLL3scale(rl, rightmove, zero) -> ET.Element:
             draw.line(doc, length, xpos, zero, col="black")
         if textstr:
             draw.text(doc, textstr, xpos, zero, y0, y1, fontsize)
+    y0 = 55
+    y1 = 45
     # x from 100 to 1000 in steps of 10
     for r in range(100, 1000, 10):
         textstr = ''
@@ -139,8 +141,6 @@ def addLL3scale(rl, rightmove, zero) -> ET.Element:
                 length = 40
                 textstr = str(r)
                 fontsize = 16
-                y0 = 55
-                y1 = 45
                 textpos = xpos-10
             else:
                 length = 25
@@ -160,10 +160,8 @@ def addLL3scale(rl, rightmove, zero) -> ET.Element:
         xpos = m*math.log10(math.log(x)) + c
         if r % 1000 == 0:
             if r in (1000, 2000, 3000):
-                length = 50
+                length = 40
                 fontsize = 16
-                y0 = 65
-                y1 = 55
                 textpos = xpos
                 if r == 1000:
                     textstr = '1k'
@@ -172,11 +170,11 @@ def addLL3scale(rl, rightmove, zero) -> ET.Element:
                 else:
                     textstr = '3k'
             else:
-                length = 25
+                length = 30
         elif r % 500 == 0:
-            length = 20
+            length = 25
         elif r < 2000:
-            length = 14
+            length = 20
         if length:
             draw.line(doc, length, xpos, zero, col="black")
         if textstr:
@@ -189,19 +187,17 @@ def addLL3scale(rl, rightmove, zero) -> ET.Element:
         xpos = m*math.log10(math.log(x)) + c
         if r % 5000 == 0:
             if r == 15000:
-                length = 20
+                length = 30
             elif r in (5000, 10000, 20000):
-                length = 50
+                length = 40
                 fontsize = 16
-                y0 = 65
-                y1 = 55
                 if r == 5000:
                     textpos = xpos
                 else:
                     textpos = xpos-10
                 textstr = f'{int(r/1000)}k'
         else:
-            length = 14
+            length = 20
         if length:
             draw.line(doc, length, xpos, zero, col="black")
         if textstr:
