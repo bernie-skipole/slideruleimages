@@ -39,7 +39,7 @@ def addDscale(rl, rightmove, zero) -> ET.Element:
         # r is 100 to 1000   - this is along rule length
         # x is 1 to 10 inclusive
         x = r/100
-        xpos = rightmove + rl.leftmargin + rl.scalewidth*math.log10(x)
+        xpos = c + m*math.log10(x)
         length = 0
         textstr = ''
         fontsize = 16

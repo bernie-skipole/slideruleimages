@@ -7,7 +7,7 @@ name = "slideruleimages"
 authors = [{name = "Bernard Czenkusz", email = "bernie@skipole.co.uk"}]
 license = "MIT"
 classifiers = ["Topic :: Education", "Topic :: Scientific/Engineering :: Mathematics"]
-version = "0.0.4"
+version = "0.0.5"
 description="A Python package, with no dependencies, producing SVG images of Slide Rule scales"
 readme = "README.md"
 requires-python = ">=3.10"

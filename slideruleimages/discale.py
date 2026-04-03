@@ -5,41 +5,41 @@ import math
 from . import draw
 
 
-def addCscale(rl, rightmove, zero) -> ET.Element:
-    "Adds the C scale to the rule, returns the scale element"
+def addDIscale(rl, rightmove, zero) -> ET.Element:
+    "Adds the DI scale to the rule, returns the scale element"
 
     doc = ET.Element('g')
 
-    # C mark
+    # DI mark
     if zero:
-        cy = "50"
+        diy = "50"
     else:
-        cy = "70"
-    Cmark = ET.SubElement(doc, 'text', {"x":str(rightmove + 8), "y":cy, "fill":"black", "font-size":"24"})
-    Cmark.text = "C"
+        diy = "70"
+    DImark = ET.SubElement(doc, 'text', {"x":str(rightmove + 8), "y":diy, "fill":"red", "font-size":"24"})
+    DImark.text = "DI"
 
     # scaling with y = mx+c
     m = rl.scalewidth
-    c = rightmove + rl.leftmargin
+    c = rightmove + rl.leftmargin + rl.scalewidth
 
     # Pi mark
-    xpos = m*math.log10(math.pi) + c
+    xpos = c - m*math.log10(math.pi)
     draw.line(doc, 40, xpos, zero)
-    draw.text(doc, "\u03C0", xpos, zero, 52, 47, 16)
+    draw.text(doc, "\u03C0", xpos, zero, 52, 47, 16, "red")
 
     # x mark
     if zero:
         yx = "40"
     else:
         yx = "65"
-    xmark = ET.SubElement(doc, 'text', {"x":str(rightmove  + rl.leftmargin + rl.scalewidth + 12), "y":yx,"fill":"black", "font-size":"16"})
-    xmark.text = "x"
+    xmark = ET.SubElement(doc, 'text', {"x":str(rightmove  + rl.leftmargin + rl.scalewidth + 12), "y":yx,"fill":"red", "font-size":"16"})
+    xmark.text = "1/x"
 
     for r in range(100, 1000+1):
         # r is 100 to 1000   - this is along rule length
         # x is 1 to 10 inclusive
         x = r/100
-        xpos = c + m*math.log10(x)
+        xpos = c - m*math.log10(x)
         length = 0
         textstr = ''
         fontsize = 16
@@ -79,7 +79,7 @@ def addCscale(rl, rightmove, zero) -> ET.Element:
         if length:
             draw.line(doc, length, xpos, zero, col="black")
         if textstr:
-            draw.text(doc, textstr, xpos, zero, y0, y1, fontsize)
+            draw.text(doc, textstr, xpos, zero, y0, y1, fontsize, "red")
 
     return doc
 
