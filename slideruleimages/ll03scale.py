@@ -58,35 +58,34 @@ def addLL03scale(rl, rightmove, zero) -> ET.Element:
         xpos = c+m*math.log10(-1*math.log(x))
         fontsize = 16
         if r == 50:
-            length = 30
+            length = 35
             draw.text(doc, "0.05", xpos-10, zero, 50, 40, fontsize, col="red")
         elif r<100 and r>40:
             if r % 10 == 0:
-                length = 20
+                length = 25
             elif r % 5 == 0:
-                length = 10 
+                length = 15 
         elif r<=40:
             if r % 20 == 0:
-                length = 30
+                length = 35
                 textstr = str(x)
                 y0 = 50
                 y1 = 40
             elif r % 10 == 0 :
-                length = 30
+                length = 35
             elif r % 5 == 0 :
-                length = 20
+                length = 25
             else :
-                length = 10
+                length = 15
         elif r % 100 == 0 :
-            length = 30
+            length = 35
             textstr = str(x)
             y0 = 50
             y1 = 40
         elif r % 50 == 0 :
-            length = 20
-        else:
-            if r % 10 == 0:
-                length = 10
+            length = 25
+        elif r % 10 == 0:
+            length = 15
 
         if length:
             draw.line(doc, length, xpos, zero, col="black")
@@ -101,25 +100,25 @@ def addLL03scale(rl, rightmove, zero) -> ET.Element:
         xpos = c+m*math.log10(-1*math.log(x))
         fontsize = 16
         if r == 100:
-            length = 30
+            length = 35
             draw.text(doc, "10", xpos, zero, 50, 40, 16, col="red")
             draw.text(doc, "-2", xpos+16, zero, 40, 50, 12, col="red")
         elif r == 50:
-            length = 30
+            length = 35
             textstr = "5"
             y0 = 50
             y1 = 40
         elif r == 20:
-            length = 30
+            length = 35
             textstr = "2"
             y0 = 50
             y1 = 40
         elif r % 10 == 0:
-            length = 20
+            length = 25
         elif r < 50 and r % 5 == 0:
-            length = 10
+            length = 15
         elif r < 20:
-            length = 5
+            length = 10
         if length:
             draw.line(doc, length, xpos, zero, col="black")
         if textstr:
@@ -132,23 +131,23 @@ def addLL03scale(rl, rightmove, zero) -> ET.Element:
         xpos = c+m*math.log10(-1*math.log(x))
         fontsize = 16
         if r == 100:
-            length = 30
+            length = 35
             draw.text(doc, "10", xpos, zero, 50, 40, 16, col="red")
             draw.text(doc, "-3", xpos+16, zero, 40, 50, 12, col="red")
         elif r == 50:
-            length = 30
+            length = 35
             textstr = "5"
             y0 = 50
             y1 = 40
         elif r == 20:
-            length = 30
+            length = 35
             textstr = "2"
             y0 = 50
             y1 = 40
         elif r % 10 == 0:
-            length = 20
+            length = 25
         elif r < 50 and r % 5 == 0:
-            length = 10
+            length = 15
         if length:
             draw.line(doc, length, xpos, zero, col="black")
         if textstr:
@@ -161,23 +160,20 @@ def addLL03scale(rl, rightmove, zero) -> ET.Element:
         xpos = c+m*math.log10(-1*math.log(x))
         fontsize = 16
         if r == 100:
-            length = 30
+            length = 35
             draw.text(doc, "10", xpos, zero, 50, 40, 16, col="red")
             draw.text(doc, "-4", xpos+16, zero, 40, 50, 12, col="red")
         elif r == 50:
-            length = 30
+            length = 35
             textstr = "5"
             y0 = 50
             y1 = 40
         elif r % 10 == 0:
-            length = 20
+            length = 25
         if length:
             draw.line(doc, length, xpos, zero, col="black")
         if textstr:
             draw.text(doc, textstr, xpos, zero, y0, y1, fontsize, col="red")
-
-
-
 
     return doc
 
