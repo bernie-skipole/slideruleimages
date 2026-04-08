@@ -10,7 +10,7 @@ def addLL02scale(rl, rightmove, zero) -> ET.Element:
 
     doc = ET.Element('g')
 
-    # LL03 mark
+    # LL02 mark
     if zero:
         LLmark = ET.SubElement(doc, 'text', {"x":str(rightmove + 6), "y":"30", "fill":"red", "font-size":"24"})
         LLmark.text = "LL"

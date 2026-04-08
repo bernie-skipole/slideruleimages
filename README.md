@@ -83,6 +83,8 @@ The Rule class has methods:
 
     addLL0scale(btmrule=-1, midrule=-1, toprule=-1)
 
+    addLL01scale(btmrule=-1, midrule=-1, toprule=-1)
+
     addLL02scale(btmrule=-1, midrule=-1, toprule=-1)
 
     addLL03scale(btmrule=-1, midrule=-1, toprule=-1)
