@@ -32,6 +32,8 @@ from .ll02scale import addLL02scale
 
 from .ll01scale import addLL01scale
 
+from .ll00scale import addLL00scale
+
 from .lscale import addLscale
 
 
@@ -221,6 +223,9 @@ class Rule:
 
     def addLL01scale(self, btmrule=-1, midrule=-1, toprule=-1):
         self._createscale(addLL01scale, btmrule, midrule, toprule)
+
+    def addLL00scale(self, btmrule=-1, midrule=-1, toprule=-1):
+        self._createscale(addLL00scale, btmrule, midrule, toprule)
 
     def addLscale(self, btmrule=-1, midrule=-1, toprule=-1):
         self._createscale(addLscale, btmrule, midrule, toprule)
