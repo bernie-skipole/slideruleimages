@@ -99,6 +99,8 @@ The Rule class has methods:
 
     addLL3scale(btmrule=-1, midrule=-1, toprule=-1)
 
+    addSscale(btmrule=-1, midrule=-1, toprule=-1)
+
 The write method saves the image file.
 
 When adding a scale, only one of the arguments btmrule, midrule or toprule should be given a non -1 argument which indicates which rule the scale should appear on, and the integer number of pixels down from the top of that rule.
