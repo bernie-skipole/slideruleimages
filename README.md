@@ -71,6 +71,8 @@ The Rule class has methods:
 
     addCFscale(btmrule=-1, midrule=-1, toprule=-1)
 
+    addCIscale(btmrule=-1, midrule=-1, toprule=-1)
+
     addDscale(btmrule=-1, midrule=-1, toprule=-1)
 
     addDFscale(btmrule=-1, midrule=-1, toprule=-1)

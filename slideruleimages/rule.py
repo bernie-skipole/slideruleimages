@@ -12,6 +12,8 @@ from .cscale import addCscale
 
 from .cfscale import addCFscale
 
+from .ciscale import addCIscale
+
 from .dfscale import addDFscale
 
 from .discale import addDIscale
@@ -185,14 +187,17 @@ class Rule:
     def addBscale(self, btmrule=-1, midrule=-1, toprule=-1):
         self._createscale(addBscale, btmrule, midrule, toprule)
 
-    def addDscale(self, btmrule=-1, midrule=-1, toprule=-1):
-        self._createscale(addDscale, btmrule, midrule, toprule)
-
     def addCscale(self, btmrule=-1, midrule=-1, toprule=-1):
         self._createscale(addCscale, btmrule, midrule, toprule)
 
     def addCFscale(self, btmrule=-1, midrule=-1, toprule=-1):
         self._createscale(addCFscale, btmrule, midrule, toprule)
+
+    def addCIscale(self, btmrule=-1, midrule=-1, toprule=-1):
+        self._createscale(addCIscale, btmrule, midrule, toprule)
+
+    def addDscale(self, btmrule=-1, midrule=-1, toprule=-1):
+        self._createscale(addDscale, btmrule, midrule, toprule)
 
     def addDFscale(self, btmrule=-1, midrule=-1, toprule=-1):
         self._createscale(addDFscale, btmrule, midrule, toprule)
