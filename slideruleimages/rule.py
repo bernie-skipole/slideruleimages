@@ -40,6 +40,8 @@ from .lscale import addLscale
 
 from .sscale import addSscale
 
+from .tscale import addTscale
+
 
 
 class Rule:
@@ -239,6 +241,9 @@ class Rule:
 
     def addSscale(self, btmrule=-1, midrule=-1, toprule=-1):
         self._createscale(addSscale, btmrule, midrule, toprule)
+
+    def addTscale(self, btmrule=-1, midrule=-1, toprule=-1):
+        self._createscale(addTscale, btmrule, midrule, toprule)
 
 
 
